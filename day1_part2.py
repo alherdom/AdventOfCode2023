@@ -9,9 +9,11 @@ LETTERS_NUMBERS = [
     "eight",
     "nine",
 ]
+
 number = ""
 numbers = []
 f = open("day1.txt")
+
 for line in f:
     for char in line:
         if char.isdigit():
