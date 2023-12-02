@@ -20,12 +20,10 @@ def read_lines(file_path) -> list[str]:
 
 def extract_digits(line) -> list[tuple]:
     digits = [(d, line.find(d)) for d in re.findall(r"\d", line)]
-
     for key, value in NUMBERS.items():
         start = line.find(key)
         if start != -1:
             digits.append((value, start))
-
     return sorted(digits, key=lambda x: x[1])
 
 
@@ -34,5 +32,5 @@ def get_values(digits) -> int:
 
 
 digits = [extract_digits(line) for line in read_lines("day1_input2.txt")]
-calibration_values = get_values(digits)
-print(sum(calibration_values))
+calibration_value = sum((get_values(digits)))
+print(calibration_value)
