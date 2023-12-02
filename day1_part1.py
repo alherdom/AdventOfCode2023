@@ -1,19 +1,5 @@
-number = ""
-numbers = []
-f = open("day1.txt")
+import re
 
-for line in f:
-    for char in line:
-        if char.isdigit():
-            number += char
-            break
-
-    for char in line[::-1]:
-        if char.isdigit():
-            number += char
-            break
-    numbers.append(int(number))
-    number = "" 
-
-result = sum(numbers)    
-print(result)
+digits = [re.findall(r"\d", line) for line in open("day1_input1.txt")]
+calibration_value = sum([int(d[0] + d[-1]) for d in digits])
+print(calibration_value)
