@@ -32,6 +32,6 @@ def process_line(line):
 with open("day2/day2_input1.txt", "r") as file:
     for line in file:
         is_valid, idgame = process_line(line)
-        if is_valid and idgame is not None:
+        if is_valid:
             sum_idgames += idgame
 print(sum_idgames)

@@ -7,11 +7,11 @@ re_idgame = r"\b(\d+)\b"
 total_power = 0
 
 
-def get_times(color_match):
+def get_times(color_match) -> int:
     return int(color_match[0]) if color_match else 0
 
 
-def calc_power(line):
+def calc_power(line) -> int:
     sets = line.strip(" \n ").split(";")
     max_values = {color: 0 for color in CONFIG}
     for set in sets:
