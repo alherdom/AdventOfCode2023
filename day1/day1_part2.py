@@ -27,10 +27,9 @@ def extract_digits(line) -> list[tuple]:
     return sorted(digits, key=lambda x: x[1])
 
 
-def get_values(digits) -> int:
-    return [int(d[0][0] + d[-1][0]) for d in digits]
+def calibration_value(digits) -> int:
+    return sum(int(d[0][0] + d[-1][0]) for d in digits)
 
 
-digits = [extract_digits(line) for line in read_lines("day1_input2.txt")]
-calibration_value = sum((get_values(digits)))
-print(calibration_value)
+digits = (extract_digits(line) for line in read_lines("day1/day1_input2.txt"))
+print(calibration_value(digits))
